@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row >
+    <span>InDigitalTest</span>
+    <button mat-button [routerLink]="['/customers']">Customers</button>
+    <span class="spacer"></span>
+
+    <ng-container *ngIf="loggedUser; else signIn">
+
+<button mat-button [mat-menu-trigger-for]="menu">
+      <span>{{loggedUser.displayName}}</span>
+      <img class="avatar-img" [src]="loggedUser.photoURL">
+</button>
+
+    </ng-container>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<ng-template #signIn>
+  <button mat-raised-button
+          color="accent"
+          (click)="signInHandler()"
+  >
+    Sign In
+  </button>
+</ng-template>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item
+          (click)="signOutHandler()"
+  >
+    Sign Out
+  </button>
+</mat-menu>

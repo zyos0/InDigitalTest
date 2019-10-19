@@ -1,0 +1,4 @@
+<div fxLayout="column" fxFlexFill>
+  <app-header [loggedUser]="currentUser$|async" (signIn)="onSignIn()" (signOut)="onSignOut()"></app-header>
+  <router-outlet></router-outlet>
+</div>

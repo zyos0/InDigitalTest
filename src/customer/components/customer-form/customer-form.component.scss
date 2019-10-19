@@ -1,0 +1,12 @@
+:host {
+  .customer-form {
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+
+    * {
+      width: 100%;
+    }
+  }
+}
+

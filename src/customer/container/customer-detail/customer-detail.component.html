@@ -1,0 +1,22 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <mat-toolbar color="accent">
+    <mat-toolbar-row fxLayout="row">
+      <div fxFlex="10">
+        <span *ngIf="!creationAttempt; else title;">
+            Create Customer
+          </span>
+        <ng-template #title>
+          {{(customer$|async) ? 'Edit Customer' : 'Loading...'}}
+
+        </ng-template>
+
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div fxLayout="column" fxFlexAlign="stretch" fxLayoutAlign="stretch center">
+    <app-customer-form *ngIf="!creationAttempt || (customer$|async)" [existingCustomer]="customer$|async" fxFlexAlign="center"
+                       (submitted)="registerCustomer($event)"></app-customer-form>
+  </div>
+
+</div>
